@@ -6,7 +6,7 @@ app = Flask(__name__)
 def start():
     return render_template('index.html')
 
-@app.route('/question2', methods=['GET', 'POST'])
+@app.route('/templates/question2', methods=['GET', 'POST'])
 def question2():
     if request.method == 'POST':
         if request.form.get('born_in_us') == 'no':
