@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        /* Same CSS as index.html */
+    </style>
+</head>
+<body>
+    <div class="result">NO</div>
+    <div class="subtext">According to Project 2025 and the blueprint for the current administration, you are NOT at the risk of being deported</div>
+</body>
+</html>
