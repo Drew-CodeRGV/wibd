@@ -1,0 +1,22 @@
+<!-- templates/question3.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citizenship Questionnaire</title>
+    <style>
+        /* Same CSS as question1.html */
+    </style>
+</head>
+<body>
+    <div class="question">Are both of your parents born citizens of the United States?</div>
+    <form action="/process_final" method="post">
+        <div class="options">
+            <input type="radio" id="yes" name="answer" value="yes" required>
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="answer" value="no">
+            <label for="no">No</label>
+        </div>
+        <button type="submit" class="next-button">Next</button>
+    </form>
+</body>
+</html>
