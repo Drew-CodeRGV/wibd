@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citizenship Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .question {
+            display: none;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .result {
+            display: none;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .subtext {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .next-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .options {
+            margin-bottom: 20px;
+        }
+        #question1 {
+            display: block;
+        }
+    </style>
+    <script>
+        function showNextQuestion(currentQuestion, answer) {
+            document.getElementById(currentQuestion).style.display = 'none';
+            
+            if (currentQuestion === 'question1') {
+                if (answer === 'no') {
+                    showResult('yes');
+                } else {
+                    document.getElementById('question2').style.display = 'block';
+                }
+            }
+            else if (currentQuestion === 'question2') {
+                if (answer === 'no') {
+                    showResult('yes');
+                } else {
+                    document.getElementById('question3').style.display = 'block';
+                }
+            }
+            else if (currentQuestion === 'question3') {
+                if (answer === 'no') {
+                    showResult('yes');
+                } else {
+                    showResult('no');
+                }
+            }
+        }
+
+        function showResult(result) {
+            document.getElementById('result_' + result).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="question1" class="question">
+        <div>Were you born in the United States?</div>
+        <div class="options">
+            <input type="radio" id="q1_yes" name="born_in_us" value="yes" required>
+            <label for="q1_yes">Yes</label><br>
+            <input type="radio" id="q1_no" name="born_in_us" value="no">
+            <label for="q1_no">No</label>
+        </div>
+        <button onclick="showNextQuestion('question1', document.querySelector('input[name=born_in_us]:checked').value)" class="next-button">Next</button>
+    </div>
+
+    <div id="question2" class="question">
+        <div>Are you a United States citizen?</div>
+        <div class="options">
+            <input type="radio" id="q2_yes" name="us_citizen" value="yes" required>
+            <label for="q2_yes">Yes</label><br>
+            <input type="radio" id="q2_no" name="us_citizen" value="no">
+            <label for="q2_no">No</label>
+        </div>
+        <button onclick="showNextQuestion('question2', document.querySelector('input[name=us_citizen]:checked').value)" class="next-button">Next</button>
+    </div>
+
+    <div id="question3" class="question">
+        <div>Are both of your parents born citizens of the United States?</div>
+        <div class="options">
+            <input type="radio" id="q3_yes" name="parents_citizens" value="yes" required>
+            <label for="q3_yes">Yes</label><br>
+            <input type="radio" id="q3_no" name="parents_citizens" value="no">
+            <label for="q3_no">No</label>
+        </div>
+        <button onclick="showNextQuestion('question3', document.querySelector('input[name=parents_citizens]:checked').value)" class="next-button">Next</button>
+    </div>
+
+    <div id="result_yes" class="result">
+        <div class="result">YES</div>
+        <div class="subtext">According to Project 2025 and the blueprint for the current administration, you are at the risk of being deported</div>
+    </div>
+
+    <div id="result_no" class="result">
+        <div class="result">NO</div>
+        <div class="subtext">According to Project 2025 and the blueprint for the current administration, you are NOT at the risk of being deported</div>
+    </div>
+</body>
+</html>
